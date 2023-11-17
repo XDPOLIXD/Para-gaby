@@ -1,3 +1,10 @@
+:root {
+    --margen: 20px;
+    --radio-borde: 50px;
+    --duracion-transicion: 0.3s;
+    --escala-hover: 1.05;
+}
+
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
@@ -19,9 +26,9 @@ header {
 section {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: var(--margen);
     justify-content: space-around;
-    padding: 20px;
+    padding: var(--margen);
 }
 
 .video-container {
@@ -29,10 +36,10 @@ section {
     width: 100%;
     padding-bottom: 0%;
     overflow: hidden;
-    margin: 20px;
-    border-radius: 50px;
+    margin: var(--margen);
+    border-radius: var(--radio-borde);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
+    transition: transform var(--duracion-transicion) ease-in-out;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -59,7 +66,7 @@ section {
 
 @media only screen and (min-width: 601px) {
     .video-container:hover {
-        transform: scale(1.05);
+        transform: scale(var(--escala-hover));
     }
 }
 
@@ -72,7 +79,9 @@ video {
     height: auto;
 }
 
-video::-webkit-media-controls {
+video::-webkit-media-controls,
+video::-moz-media-controls,
+video::-ms-media-controls {
     display: none !important;
 }
 
@@ -81,6 +90,10 @@ video::-webkit-media-controls-progress-bar {
 }
 
 video::-webkit-media-controls-play-button,
-video::-webkit-media-controls-pause-button {
+video::-webkit-media-controls-pause-button,
+video::-moz-media-controls-play-button,
+video::-moz-media-controls-pause-button,
+video::-ms-media-controls-play-button,
+video::-ms-media-controls-pause-button {
     color: #fff;
 }
