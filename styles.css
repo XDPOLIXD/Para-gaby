@@ -2,18 +2,18 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-image: url(IMG/wallpaperbetter.com_1920x1080.jpg); /* Reemplaza 'ruta_de_tu_imagen.jpg' con la ruta real de tu imagen */
-    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el fondo */
-    background-position: center; /* Centra la imagen en el fondo */
-    background-repeat: no-repeat; /* Evita la repetición de la imagen */
+    background-image: url(IMG/wallpaperbetter.com_1920x1080.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
-
 
 header {
     background-color: #333;
     color: #fff;
     text-align: center;
     padding: 1em;
+    font-size: 1.5em; /* Ajusta el tamaño de la fuente según sea necesario */
 }
 
 section {
@@ -27,7 +27,7 @@ section {
 .video-container {
     position: relative;
     width: 100%;
-    padding-bottom: 0%; /* Ajusta este valor para cambiar el aspect ratio del contenedor */
+    padding-bottom: 0%;
     overflow: hidden;
     margin: 20px;
     border-radius: 50px;
@@ -38,30 +38,48 @@ section {
     justify-content: center;
 }
 
-.video-container:hover {
-    transform: scale(1.05);
+@media only screen and (max-width: 600px) {
+    body {
+        background-size: auto;
+    }
+
+    section {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .video-container {
+        margin: 10px;
+    }
+
+    video {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+@media only screen and (min-width: 601px) {
+    .video-container:hover {
+        transform: scale(1.05);
+    }
 }
 
 video {
     border-radius: 8px;
     display: block;
-    max-width: 80%; /* Ajusta este valor según tus preferencias */
-    max-height: 80%; /* Ajusta este valor según tus preferencias */
+    max-width: 80%;
+    max-height: 80%;
     width: auto;
     height: auto;
 }
 
-/* Estilo para los controles de video */
 video::-webkit-media-controls {
     display: none !important;
 }
 
-/* Estilo para la barra de progreso del video */
 video::-webkit-media-controls-progress-bar {
     background-color: #333;
 }
 
-/* Estilo para los botones de reproducción/pausa */
 video::-webkit-media-controls-play-button,
 video::-webkit-media-controls-pause-button {
     color: #fff;
