@@ -1,0 +1,99 @@
+:root {
+    --margen: 20px;
+    --radio-borde: 50px;
+    --duracion-transicion: 0.3s;
+    --escala-hover: 1.05;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #FFFFFF;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1em;
+    font-size: 1.5em; /* Ajusta el tamaño de la fuente según sea necesario */
+}
+
+section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--margen);
+    justify-content: space-around;
+    padding: var(--margen);
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 0%;
+    overflow: hidden;
+    margin: var(--margen);
+    border-radius: var(--radio-borde);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform var(--duracion-transicion) ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media only screen and (max-width: 600px) {
+    body {
+        background-size: auto;
+    }
+
+    section {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .video-container {
+        margin: 10px;
+    }
+
+    video {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+@media only screen and (min-width: 601px) {
+    .video-container:hover {
+        transform: scale(var(--escala-hover));
+    }
+}
+
+video {
+    border-radius: 8px;
+    display: block;
+    max-width: 80%;
+    max-height: 80%;
+    width: auto;
+    height: auto;
+}
+
+video::-webkit-media-controls,
+video::-moz-media-controls,
+video::-ms-media-controls {
+    display: none !important;
+}
+
+video::-webkit-media-controls-progress-bar {
+    background-color: #333;
+}
+
+video::-webkit-media-controls-play-button,
+video::-webkit-media-controls-pause-button,
+video::-moz-media-controls-play-button,
+video::-moz-media-controls-pause-button,
+video::-ms-media-controls-play-button,
+video::-ms-media-controls-pause-button {
+    color: #fff;
+}
